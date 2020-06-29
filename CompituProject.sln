@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompituProject", "CompituProject\CompituProject.csproj", "{2EE8B88B-5C4C-4825-92B7-833AB443E03F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompituProject", "CompituProject\CompituProject.csproj", "{2EE8B88B-5C4C-4825-92B7-833AB443E03F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
