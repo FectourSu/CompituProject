@@ -1,8 +1,88 @@
 ﻿@page "/list/{id:int}"
 
-<h3>ToDoList @Id</h3>
+<div class="content">
+    <div class="container-fluid" id="content-retreat">
+        <div class="content-header pt-5">
+            <h2 class="content-text">TestList @Id</h2>
+            <a href="/">
+                <img class="content-logo" src="/img/logo.png" />
+            </a>
+        </div>
+
+        @if (!list.Any())
+        {
+            <div class="content-img pt-5" id="wide-image-format">
+                <div class="content-img__item">
+                    <img src="/img/girl fix.svg" />
+                </div>
+                <div class="content-img__item">
+                    <img src="/img/h1.svg" />
+                </div>
+                <div class="content-img__item">
+                    <img src="/img/h2.svg" />
+                </div>
+            </div>
+
+            <div class="content-img pt-5 align-items-center" id="compressed-image-format">
+                <img src="/img/adaptiveHuman.svg" />
+            </div>
+
+            <div class="content-subtext pt-5">
+                <h3 class="text-color__grey">List have not tasks</h3>
+                <span>added task, plese</span>
+            </div>
+        }
+        else
+        {
+            <div class="content-todo">
+                @foreach (var item in list)
+                {
+
+                    <a href="/">@item</a>
+
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<div class="content-button mt-5">
+    <div class="block-retreat">
+        <div class="button-block">
+            <button class="btn btn-radius" @onclick="AddToDo">
+                <span class="material-icons">
+                    add
+                </span>
+                <span class="text-famaly__roboto mr-1">Add a new task</span>
+            </button>
+            <div class="line"></div>
+        </div>
+
+        <div class="menu-block pt-4">
+            <button class="btn">
+                <span class="material-icons">
+                    linear_scale
+                </span>
+            </button>
+
+            <button class="btn">
+                <span class="material-icons">
+                    menu
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
 
 @code {
     [Parameter]
     public int Id { get; set; }
+
+    private List<string> list = new List<string>();
+
+    private void AddToDo()
+    {
+        list.Add("Test message");
+
+    }
 }

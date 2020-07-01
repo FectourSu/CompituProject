@@ -1,0 +1,60 @@
+﻿
+<div class="container" id="content-retreat">
+    <div class="content-header pt-5">
+        <h2 class="content-text">@NameList</h2>
+        <a href="/">
+            <img class="content-logo" src="/img/logo.svg" />
+        </a>
+    </div>
+    <div class="content-img pt-5">
+        <div class="content-img__item">
+            <img src="/img/h3.svg" />
+        </div>
+        <div class="content-img__main__item">
+            <img src="/img/h1.svg" />
+        </div>
+        <div class="content-img__item">
+            <img src="/img/h2.svg" />
+        </div>
+    </div>
+    <div class="content-subtext pt-5">
+        <h3 class="text-color__grey">List have not tasks</h3>
+        <span>added task, plese</span>
+    </div>
+</div>
+
+<div class="content-button mt-5">
+    <div class="block-retreat">
+        <div class="button-block">
+            <button class="btn btn-radius" @onclick="AddToDo">
+                <span class="material-icons">
+                    add
+                </span>
+                <samp class="text-famaly__roboto mr-1">Add a new task</samp>
+            </button>
+            <div class="line"></div>
+        </div>
+
+        <div class="menu-block pt-4">
+            <button class="btn">
+                <span class="material-icons">
+                    linear_scale
+                </span>
+            </button>
+
+            <button class="btn">
+                <span class="material-icons">
+                    menu
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string NameList { get; set; }
+
+    [Parameter]
+    public EventCallback AddToDo { get; set; }
+}
