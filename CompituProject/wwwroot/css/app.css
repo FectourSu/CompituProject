@@ -3,12 +3,10 @@
     font-family: 'Roboto', sans-serif !important;
 }
 
-=======
 ﻿html, body {
     font-family: 'Roboto';
 }
 
-//Обнуление
 * {
     padding: 0px;
     margin: 0px;
@@ -46,7 +44,6 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    min-width: 320px;
     position: relative;
     color: #000;
 }
@@ -123,7 +120,6 @@ h6 {
         top: 0.5rem;
     }
 
-
 .text-color__grey {
     color: #7d7d7d !important;
 }
@@ -142,7 +138,7 @@ h6 {
 }
 
 
-/*ToDoList*/
+/*Begin ToDoList*/
 
 .content {
     height: calc(80vh);
@@ -215,7 +211,7 @@ h6 {
     }
 
 .content-body {
-    height: 80%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -224,10 +220,15 @@ h6 {
 .content-todo {
     height: 100%;
     width: 100%;
-    max-height: 50%;
+    max-height: 80%;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
 }
+    .content-todo::-webkit-scrollbar {
+        width: 0;
+    }
 
 .content-button {
     position: fixed;
@@ -283,6 +284,10 @@ h6 {
 
 @media only screen and (max-width: 890px) {
 
+    .container {
+        max-width: 540px !important;
+    }
+
     .content-button .button-block button {
         height: 56px;
     }
@@ -292,7 +297,7 @@ h6 {
     }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 450px) {
 
     .content-logo {
         width: 80%;
@@ -337,8 +342,83 @@ h6 {
     .content-subtext {
         padding-top: 1.4rem !important;
     }
+
+    .content-button .menu-block.pt-4 {
+        padding: 0.5rem !important;
+    }
 }
 
+
+@media only screen and (max-width: 890px) and (max-height: 550px) {
+
+    .content-button {
+        zoom: 60%;
+    }
+
+    .content-text {
+        font-size: 22px;
+    }
+
+    .content-subtext h3 {
+        font-size: 14px;
+    }
+
+    .content-subtext span {
+        font-size: 10px;
+    }
+
+    .pt-5 {
+        padding-top: 15px !important;
+    }
+
+    .content-body .pt-5 {
+        padding-top: 5px !important;
+    }
+
+    .content-button .menu-block.pt-4 {
+        padding: 0 !important;
+    }
+}
+
+@media only screen and (max-height: 440px) and (max-width: 450px) {
+    .content-button {
+        zoom: 45%;
+    }
+
+    .content-text {
+        font-size: 18px;
+    }
+
+    .content-subtext h3 {
+        font-size: 12px;
+    }
+
+    .content-subtext span {
+        font-size: 8px;
+    }
+
+    .content-header a {
+        width: 100px;
+    }
+
+    .content-button {
+        bottom: .8rem;
+    }
+}
+
+@media only screen and (max-height: 370px) {
+    .content-body {
+        justify-content: normal;
+    }
+}
+
+@media only screen and (min-width: 740px) and (min-height: 860px) {
+    .content-button {
+        zoom: 140%;
+    }
+}
+
+/*End ToDoList*/
 
     /*home*/
 
@@ -641,6 +721,9 @@ h6 {
     .text {
         color: red;
     }
+}
+.text {
+    padding-top: 3vw;
 }
 @media only screen and (max-width: 800px){
     .text {
