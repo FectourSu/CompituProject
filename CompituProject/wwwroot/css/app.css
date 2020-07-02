@@ -343,6 +343,10 @@ h6 {
     .content-subtext {
         padding-top: 1.4rem !important;
     }
+
+    .content-button .menu-block.pt-4 {
+        padding: 0.5rem !important;
+    }
 }
 
 
