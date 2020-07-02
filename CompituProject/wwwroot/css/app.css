@@ -407,7 +407,7 @@ h6 {
     }
 }
 
-@media only screen and (max-height: 360px) {
+@media only screen and (max-height: 370px) {
     .content-body {
         justify-content: normal;
     }
