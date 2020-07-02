@@ -402,12 +402,14 @@ h6 {
         width: 100px;
     }
 
-    .content-body {
-        justify-content: normal;
-    }
-
     .content-button {
         bottom: .8rem;
+    }
+}
+
+@media only screen and (max-height: 360px) and (max-width: 452px) {
+    .content-body {
+        justify-content: normal;
     }
 }
 
