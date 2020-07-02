@@ -372,6 +372,10 @@ h6 {
         padding-top: 5px !important;
     }
 
+    .content-button .menu-block.pt-4 {
+        padding: 0 !important;
+    }
+}
 
     /*home*/
 
