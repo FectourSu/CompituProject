@@ -298,7 +298,7 @@ h6 {
     }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 450px) {
 
     .content-logo {
         width: 80%;
@@ -357,11 +357,11 @@ h6 {
     }
 
     .content-subtext h3 {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .content-subtext span {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .pt-5 {
@@ -376,6 +376,44 @@ h6 {
         padding: 0 !important;
     }
 }
+
+@media only screen and (max-height: 280px) {
+    .content-button {
+        zoom: 45%;
+    }
+
+    .content-text {
+        font-size: 18px;
+    }
+
+    .content-subtext h3 {
+        font-size: 12px;
+    }
+
+    .content-subtext span {
+        font-size: 8px;
+    }
+
+    .content-header a {
+        width: 100px;
+    }
+
+    .content-body {
+        justify-content: normal;
+    }
+
+    .content-button {
+        bottom: .8rem;
+    }
+}
+
+@media only screen and (min-width: 740px) and (min-height: 860px) {
+    .content-button {
+        zoom: 140%;
+    }
+}
+
+/*End ToDoList*/
 
     /*home*/
 
