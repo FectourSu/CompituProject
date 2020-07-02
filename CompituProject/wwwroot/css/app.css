@@ -377,7 +377,7 @@ h6 {
     }
 }
 
-@media only screen and (max-height: 370px) {
+@media only screen and (max-height: 440px) and (max-width: 450px) {
     .content-button {
         zoom: 45%;
     }
