@@ -3,12 +3,10 @@
     font-family: 'Roboto', sans-serif !important;
 }
 
-=======
 ﻿html, body {
     font-family: 'Roboto';
 }
 
-//Обнуление
 * {
     padding: 0px;
     margin: 0px;
@@ -46,7 +44,6 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    min-width: 320px;
     position: relative;
     color: #000;
 }
