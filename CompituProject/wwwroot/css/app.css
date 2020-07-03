@@ -578,7 +578,6 @@ h6 {
 }
 
 .ham8.active .middle {
-    //stroke-dashoffset: -20px;
     transform: rotate(90deg);
 }
 
@@ -617,10 +616,7 @@ h6 {
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
-    /* border: 1px solid rgba(0,0,0,.2); */
-    /* border-top-right-radius: 10px; */
     outline: 0;
-    /* border-top-left-radius: 10px; */
     height: 250px;
     border: 0;
 }
@@ -633,9 +629,6 @@ h6 {
     justify-content: space-between;
     padding: 1rem 1rem;
     border-bottom: 1px solid #dee2e6;
-    /*border-top-left-radius: .4rem;
-         border-top-right-radius: .4rem;
-    */
     color: white;
     background-color: #3ec695;
     font-family: "Roboto Regular";
@@ -671,21 +664,24 @@ h6 {
     border-bottom-right-radius: .3rem;
     z-index: 0;
     border-bottom-left-radius: .3rem;
-    height: 100%;
+    height: 30%;
 }
 .modal.custom .modal-dialog {
-    width: 100%;
     position: fixed;
     bottom: 0;
     right: 0;
     margin: 0;
+    width: 300px;
     padding: 20px 20px;
-    /*left: 0;*/
-    /*padding: 0;*/
 }
 @media (max-width: 600px) {
     .modal.custom .modal-dialog {
+        width: 100%  !important;
         padding: 0 !important;
+
+    }
+    .burger {
+        padding: 10px !important;
     }
     .modal-dialog{
         max-width: none !important;
