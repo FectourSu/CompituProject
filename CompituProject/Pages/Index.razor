@@ -1,5 +1,8 @@
 ﻿@page "/"
-<div class="@(isOpen ? "dark" : string.Empty)">
+
+@inject IModalService modal
+
+<div>
     <div class="background">
         <div class="canvas">
             <div class="logo-head"><img src="img/logo.svg" alt="logo" class="logo-image" /></div>
@@ -16,7 +19,7 @@
                         </h1>
                         <p>Get started add new list</p>
                         <div class="button">
-                            <a href="/CompituProject/list/1" style="display: flex; width: 100%; height: 100%;
+                            <a href="list/1" style="display: flex; width: 100%; height: 100%;
                         justify-content: center; text-decoration: none; align-items: center;
                         color: white;">ADD NEW LIST</a>
                         </div>
@@ -25,53 +28,17 @@
             </div>
         </div>
         <div class="canvas">
-            <div class="burger">
-                <div class="click" @onclick="@openModal">
-                    <svg class="ham hamRotate ham8" viewBox="0 0 100 100" width="50" onclick="this.classList.toggle('active')">
-                        <path class="line top"
-                              d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
-                        <path class="line middle"
-                              d="m 30,50 h 40 w 60" />
-                        <path class="line bottom"
-                              d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
-                    </svg>
-                </div>
-            </div>
         </div>
-        <div class="@cssClassModel modal custom show" id="trackModal" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-                        <h3 class="getlaid" id="trackModalLabel">My ToDos</h3>
-
-                    </div>
-
-                    <div class="modal-body">
-                        <a href="/CompituProject/list/1" width ="100%"><p>TestList1</p></a>
-                    </div>
-
-                    <div class="modal-footer">
-                        <div class="btnmodal" data-dismiss="modal"></div>
-
-                    </div>
-                </div>
-            </div>
+        <div class="d-flex align-content-end" style="justify-content: flex-end; width: 100%; padding: 0 2.5vw 2.5vw 0;">
+            <HamButton Visible="!modal.IsOpen" IsActive="modal.IsOpen" Click="modal.Click" />
         </div>
     </div>
 </div>
-@code
-{ 
-    string cssClassModel = string.Empty;
-    bool isOpen = false;
-    public void openModal()
-    {
-        if (!isOpen)
-            cssClassModel = "opens";
-        else
-            cssClassModel = string.Empty;
 
-        isOpen = !isOpen;
+@code {
+    protected override void OnInitialized()
+    {
+        /// Обновление кнопки HamButton после закрытия Modal
+        modal.Update += () => StateHasChanged();
     }
 }

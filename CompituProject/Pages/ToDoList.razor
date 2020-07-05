@@ -1,17 +1,19 @@
 ﻿@page "/list/{id:int}"
 
+@inject IModalService modal
+
 <div class="content">
     <div class="container" id="content-retreat">
         <div class="content-header pt-5">
             <h2 class="content-text">My TestList @Id</h2>
-            <a href="/CompituProject/">
+            <a href="/">
                 <img class="content-logo" src="img/logo.png" />
             </a>
         </div>
 
         @if (!list.Any())
         {
-            <div class ="content-body">
+            <div class="content-body">
                 <div class="content-img pt-5" id="wide-image-format">
                     <div class="content-img__item">
                         <img src="img/girl fix.svg" />
@@ -48,7 +50,7 @@
     </div>
 </div>
 
-<div class="content-button mt-5">
+<div class="content-button mt-2">
     <div class="block-retreat">
         <div class="button-block">
             <button class="btn btn-radius" @onclick="AddToDo">
@@ -59,20 +61,15 @@
             </button>
             <div class="line"></div>
         </div>
+    </div>
+    <div class="burger menu-block pt-4">
+        <button class="btn" @onclick="modal.Click">
+            <span class="material-icons">
+                linear_scale
+            </span>
+        </button>
 
-        <div class="menu-block pt-4">
-            <button class="btn">
-                <span class="material-icons">
-                    linear_scale
-                </span>
-            </button>
-
-            <button class="btn">
-                <span class="material-icons">
-                    menu
-                </span>
-            </button>
-        </div>
+        <HamButton Visible="!modal.IsOpen" IsActive="modal.IsOpen" Click="modal.Click" />
     </div>
 </div>
 
@@ -82,9 +79,14 @@
 
     private List<string> list = new List<string>();
 
+    protected override void OnInitialized()
+    {
+        /// Обновление кнопки HamButton после закрытия Modal
+        modal.Update += () => StateHasChanged();
+    }
+
     private void AddToDo()
     {
         list.Add("Test message");
-
     }
 }

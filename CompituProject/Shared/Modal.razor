@@ -1,0 +1,30 @@
+﻿
+<div class="filter @(modal.IsOpen.Value ? "dark" : string.Empty)" @onclick="modal.Click">
+</div>
+
+<div class="modal custom @cssClassShow" id="trackModal" tabindex="-1"
+     role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
+    <div class="modal-dialog @(modal.IsOpen.Value ? "modal-enable" : string.Empty)">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                <h3 class="getlaid" id="trackModalLabel">Select list</h3>
+
+            </div>
+
+            <div class="modal-body">
+                @foreach (var list in ToDoLists)
+                {
+                    <a href="list/@list.Id" width="100%"><p>@list.Name</p></a>
+                }
+            </div>
+
+            <div class="modal-footer">
+                <div class="btnmodal" data-dismiss="modal">
+                    <HamButton Visible="modal.IsOpen" IsActive="modal.IsOpen" Click="modal.Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

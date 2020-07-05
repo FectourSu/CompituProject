@@ -1,5 +1,14 @@
 ﻿@inherits LayoutComponentBase
 
+<Modal ToDoLists="new CompituProject.Models.ToDoListModel[]
+                  {
+                      new Models.ToDoListModel
+                      {
+                          Id = 1,
+                          Name = new string(new char[] { 'L', 'i', 's', 't'}),
+                          Date = DateTime.Now
+                      }
+                  }"/>
 
 <div class="main">
     @Body
