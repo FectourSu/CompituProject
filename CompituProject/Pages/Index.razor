@@ -2,36 +2,34 @@
 
 @inject IModalService modal
 
-<div>
-    <div class="background">
-        <div class="canvas">
-            <div class="logo-head"><img src="img/logo.svg" alt="logo" class="logo-image" /></div>
-        </div>
-        <div class="canvas">
-            <div class="main__about">
-                <div class="about__left">
-                    <div class="human align-center"><img src="img/human.svg" alt="human writing" class="image-large" /></div>
-                </div>
-                <div class="about__right">
-                    <div class="text">
-                        <h1>
-                            You don't have a to-do <br /> list yet, let's fix it
-                        </h1>
-                        <p>Get started add new list</p>
-                        <div class="button">
-                            <a href="list/1" style="display: flex; width: 100%; height: 100%;
+<div class="background">
+    <div class="canvas">
+        <div class="logo-head"><img src="img/logo.svg" alt="logo" class="logo-image" /></div>
+    </div>
+    <div class="canvas">
+        <div class="main__about">
+            <div class="about__left">
+                <div class="human align-center"><img src="img/human.svg" alt="human writing" class="image-large" /></div>
+            </div>
+            <div class="about__right">
+                <div class="text">
+                    <h1>
+                        You don't have a to-do <br /> list yet, let's fix it
+                    </h1>
+                    <p>Get started add new list</p>
+                    <div class="button">
+                        <a href="list/1" style="display: flex; width: 100%; height: 100%;
                         justify-content: center; text-decoration: none; align-items: center;
                         color: white;">ADD NEW LIST</a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="canvas">
-        </div>
-        <div class="d-flex align-content-end" style="justify-content: flex-end; width: 100%; padding: 0 2.5vw 2.5vw 0;">
-            <HamButton Visible="!modal.IsOpen" IsActive="modal.IsOpen" Click="modal.Click" />
-        </div>
+    </div>
+    <div class="canvas">
+    </div>
+    <div class="d-flex align-content-end" style="justify-content: flex-end; width: 100%; padding: 0 2.5vw 2.5vw 0;">
+        <HamButton Visible="!modal.IsOpen" IsActive="modal.IsOpen" Click="modal.Click" />
     </div>
 </div>
 
