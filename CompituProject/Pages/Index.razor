@@ -31,6 +31,29 @@
         </div>
         <div class="d-flex align-content-end" style="justify-content: flex-end; width: 100%; padding: 0 2.5vw 2.5vw 0;">
             <HamButton Visible="!modal.IsOpen" IsActive="modal.IsOpen" Click="modal.Click" />
+        <div class="@cssClassModel modal custom show" id="trackModal" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <div class="addList" style="font-family:Calibri; padding-right:10px;  font-size: 30px; color:white; text-align:left; cursor:pointer">+</div>
+                        <h3 class="getlaid" id="trackModalLabel">My ToDos</h3>
+
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="Lists" style="display:flex; justify-content:space-between; width: 100%;  border-bottom: 0.5px solid; color: #dcdcdc">
+                            <a href="/list/1" width="100%" style="color:green; text-decoration:none"><p>TestList1</p></a>
+                            <div class="deleteList" style="font-family:Calibri;   font-size: 15px; color:#b64b4b; text-align:right; cursor:pointer">x</div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="btnmodal" data-dismiss="modal"></div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
