@@ -262,7 +262,7 @@ h6 {
         justify-content: center;
         text-align: center;
         align-items: center;
-        z-index: 10;
+        z-index: 1;
     }
 
         .content-button .button-block button .text-famaly__roboto {
@@ -279,7 +279,7 @@ h6 {
 
 .content-button .menu-block {
     display: inline-flex;
-    width: 100%;
+    width: 85%;
     justify-content: space-between;
 }
 
@@ -425,7 +425,8 @@ h6 {
 
 /*End ToDoList*/
 
-    /*home*/
+
+/*Home*/
 
 .background {
     width: 100%;
@@ -502,6 +503,8 @@ h6 {
         line-height: 1.2;
     }
 
+/*End Home*/
+
 ::selection {
     background: #52bd9d;
     color: white;
@@ -525,16 +528,13 @@ h6 {
         box-shadow: 0 0 10px rgba(62, 198, 149, 0.5);
     }
 
-/*Burger*/
-.burger {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    padding: 30px;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
+/*HumButton*/
+
+.click {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    transition: 0.7s;
 }
 .ham {
     cursor: pointer;
@@ -590,13 +590,14 @@ h6 {
     stroke-dashoffset: -64px;
 }
 
-.click {
-    width: 50px;
-    height: 50px;
-    display: inline-flex;
-}
+/*End HumButton*/
+
+/*Modal*/
 
 .dark{
+    position: absolute;
+    top: 0;
+    left: 0;
     width:100%;
     height:100%;
 }
@@ -655,9 +656,29 @@ h6 {
     z-index: 3;
     opacity: 0;
 }
-    .modal.opens {
-        opacity: 1;
+.show {
+    opacity: 1 !important;
+}
+
+.modal-enable {
+    width: 100% !important;
+    height: auto !important;
+    padding: 20px 20px !important;
+}
+
+.modal-body {
+    min-height: 100px;
+    height: 100px;
+    padding: 1rem !important;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+
+    .modal-body::-webkit-scrollbar {
+        width: 0;
     }
+
+
 .modal-footer {
     display: -ms-flexbox;
     display: flex;
@@ -665,7 +686,6 @@ h6 {
     align-items: center;
     -ms-flex-pack: end;
     justify-content: flex-end;
-    padding: 1rem;
     border-top: 1px solid #dee2e6;
     border-bottom-right-radius: .3rem;
     z-index: 0;
@@ -673,32 +693,13 @@ h6 {
     height: 30%;
 }
 .modal.custom .modal-dialog {
+    width:0;
+    height: 0;
     position: fixed;
     bottom: 0;
     right: 0;
     margin: 0;
-    width: 300px;
-    padding: 20px 20px;
 }
-.Lists p {
-    margin-bottom: 15px !important;
-}
-
-.fa-plus {
-    padding-right: 10px;
-    font-size: 20px;
-    color: white;
-    text-align: left;
-    cursor: pointer;
-    padding-top: 6px;
-}
-.fa-trash {
-    font-size: 15px;
-    color: #dc5b5b;
-    text-align: right;
-    cursor: pointer
-}
-
 @media (max-width: 600px) {
     .modal.custom .modal-dialog {
         width: 100%  !important;
@@ -723,32 +724,38 @@ h6 {
         border-top-right-radius: .7rem !important;
     }
 }
-
 @media (min-width: 600px) {
     .modal-dialog {
         max-width: 500px;
         margin: 1.75rem auto;
     }
 }
+
+/*End Modal*/
+
 @media only screen and (min-height: 1000px) and (max-width: 1400px) {
     .text {
         color: red !important;
     }
 }
-@media only screen and (max-width: 1000px) and (min-height: 750px){
+
+@media only screen and (max-width: 1000px) and (min-height: 750px) {
     .text {
         color: red;
     }
 }
+
 @media only screen and (max-width: 768px) and (min-height: 1000px) {
     .text {
         color: red;
     }
 }
+
 .text {
     padding-top: 3vw;
 }
-@media only screen and (max-width: 800px){
+
+@media only screen and (max-width: 800px) {
     .text {
         color: red;
     }
@@ -800,23 +807,3 @@ h6 {
         transform: scale(1.5);
     }
 
-    100% {
-        opacity: 0;
-        transform: scale(1);
-    }   
-}
-/**/
-
-/*points*/
-
-.point-h {
-    font-size: 30px;
-    font-family: "Roboto medium";
-    display: flex;
-    flex-direction: column;
-    line-height: 0.3;
-    font-weight: bold;
-    color: #4d4d4d;
-    align-items: center;
-    padding: 5px 0 0 10px;
-}
