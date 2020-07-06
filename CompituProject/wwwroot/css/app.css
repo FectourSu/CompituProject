@@ -136,7 +136,12 @@ h6 {
     color: #fff;
     font-family: 'Roboto', sans-serif !important;
 }
-
+.btn:hover {
+    color: white !important;
+    text-decoration: none;
+    background-color: #52deab;
+    box-shadow: 0 0 10px rgba(62, 198, 149, 0.5);
+}
 
 /*Begin ToDoList*/
 
@@ -520,17 +525,17 @@ h6 {
         box-shadow: 0 0 10px rgba(62, 198, 149, 0.5);
     }
 
-
+/*Burger*/
 .burger {
     width: 100%;
-    text-align: right;
     position: fixed;
     bottom: 0;
     right: 0;
     padding: 30px;
     z-index: 10;
+    display: flex;
+    justify-content: space-between;
 }
-
 .ham {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -552,7 +557,7 @@ h6 {
 .line {
     fill: none;
     transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-    stroke-width: 5.0;
+    stroke-width: 5;
     stroke-linecap: round;
     stroke: #4d4d4d;
 }
@@ -635,6 +640,7 @@ h6 {
 }
 .getlaid {
     margin: 0 !important;
+    font-family: "Roboto thin";
 }
 .modal {
     position: fixed;
@@ -674,6 +680,25 @@ h6 {
     width: 300px;
     padding: 20px 20px;
 }
+.Lists p {
+    margin-bottom: 15px !important;
+}
+
+.fa-plus {
+    padding-right: 10px;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    padding-top: 6px;
+}
+.fa-trash {
+    font-size: 15px;
+    color: #dc5b5b;
+    text-align: right;
+    cursor: pointer
+}
+
 @media (max-width: 600px) {
     .modal.custom .modal-dialog {
         width: 100%  !important;
@@ -683,6 +708,7 @@ h6 {
     .burger {
         padding: 10px !important;
     }
+
     .modal-dialog{
         max-width: none !important;
     }
@@ -697,11 +723,12 @@ h6 {
         border-top-right-radius: .7rem !important;
     }
 }
-@media (min-width: 600px)
-{
+
+@media (min-width: 600px) {
     .modal-dialog {
-    max-width: 500px;
-    margin: 1.75rem auto;
+        max-width: 500px;
+        margin: 1.75rem auto;
+    }
 }
 @media only screen and (min-height: 1000px) and (max-width: 1400px) {
     .text {
@@ -728,7 +755,68 @@ h6 {
 }
 
 
+/*LOADER*/
+.center-load {
+    width: 100%;
+    align-items: center;
+    height: 100%;
+    display:flex;
+}
+.loading {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: load 2.0s infinite 0s ease-in-out;
+    animation: load 1.7s infinite 0s ease-in-out;
+}
 
+@-webkit-keyframes load {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
 
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
 
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }   
+}
 
+@keyframes load {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }   
+}
+/**/
+
+/*points*/
+
+.point-h {
+    font-size: 30px;
+    font-family: "Roboto medium";
+    display: flex;
+    flex-direction: column;
+    line-height: 0.3;
+    font-weight: bold;
+    color: #4d4d4d;
+    align-items: center;
+    padding: 5px 0 0 10px;
+}
