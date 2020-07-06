@@ -7,7 +7,7 @@
         <div class="content-header pt-5">
             <h2 class="content-text">My TestList @Id</h2>
             <a href="/CompituProject/">
-                <img class="content-logo" src="img/logo.png" />
+                <img class="content-logo" src="img/logo.svg" />
             </a>
         </div>
 
@@ -49,7 +49,6 @@
         }
     </div>
 </div>
-<ToDoBurger></ToDoBurger>
 
 <div class="content-button mt-2">
     <div class="block-retreat">
@@ -63,15 +62,16 @@
             <div class="line"></div>
         </div>
     </div>
-    <div class="burger menu-block pt-4">
-        <button class="btn" @onclick="modal.Click">
-            <span class="material-icons">
-                linear_scale
-            </span>
-        </button>
-
-        <HamButton Visible="!modal.IsOpen" IsActive="modal.IsOpen" Click="modal.Click" />
-    </div>
+</div>
+<div class="burger-todo">
+    <button class="no-hover" style="text-align:left" @onclick="modal.Click">
+        <div class="dots">
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+        </div>
+    </button>
+    <HamButton Visible="true" IsActive="modal.IsOpen" Click="modal.Click" />
 </div>
 
 

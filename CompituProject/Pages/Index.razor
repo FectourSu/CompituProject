@@ -1,7 +1,6 @@
 ﻿@page "/"
 
 @inject IModalService modal
-
 <div class="background">
     <div class="canvas">
         <div class="logo-head"><img src="img/logo.svg" alt="logo" class="logo-image" /></div>
@@ -28,7 +27,7 @@
     </div>
     <div class="canvas">
     </div>
-    <div class="d-flex align-content-end" style="justify-content: flex-end; width: 100%; padding: 0 2.5vw 2.5vw 0;">
+    <div class="burger">
         <HamButton Visible="!modal.IsOpen" IsActive="modal.IsOpen" Click="modal.Click" />
     </div>
 </div>
