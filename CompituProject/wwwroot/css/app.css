@@ -497,6 +497,11 @@ h6 {
         font-size: 0.9vw;
         text-decoration: none;
         color: white;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
         z-index: 1;
     }
     .text h1, p {
@@ -738,35 +743,296 @@ h6 {
 }
 
 /*End Modal*/
+@media only screen and (max-width: 750px) and (max-height: 500px) {
+    .image-large {
+        width: 200px !important;
+        height: 200px !important;
+    }
 
-@media only screen and (min-height: 1000px) and (max-width: 1400px) {
+    .text h1 {
+        font-size: 18px !important;
+    }
+
+    .text p {
+        font-size: 15px !important;
+    }
+
+    .button {
+        width: 135px !important;
+        height: 40px !important;
+    }
+
+    .text a {
+        font-size: 10px !important;
+    }
+}
+@media only screen and (max-width: 1300px) and (min-height: 900px){
+   .logo{
+       width:125px;
+       margin-top:50px;
+   }
     .text {
-        color: red !important;
+        padding-top: 35px;
+    }
+    .text h1, p {
+            margin-bottom: 20px;
+        }
+        .text h1 {
+            font-size: 50px;
+        }
+        .text p {
+            font-size: 30px;
+        }
+        .text a {
+            font-size: 18px;
+        }
+    .button {
+        width: 185px;
+        height: 65px;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+    .image-large {
+        width: 500px;
+        height: 500px;
+    }
+    .background{
+        background-image:none;
+    }
+    .main__about {
+        padding: 40px 0;
+        flex-direction: column;
+    }
+    .about__left {
+        padding: 3rem 0 3rem 0px;
+    }
+    .about__right {
+        text-align: center;
+    }
+    .text {
+        padding-top: 1rem !important;
     }
 }
 
-@media only screen and (max-width: 1000px) and (min-height: 750px) {
-    .text {
-        color: red;
+@media only screen and (max-width: 800px) and (max-height: 1100px) {
+    .image-large {
+        width: 300px;
+        height: 300px;
+    }
+
+    .text h1 {
+        font-size: 30px;
+    }
+
+    .text p {
+        font-size: 20px;
+    }
+
+    .button {
+        width: 165px;
+        height: 60px;
+    }
+
+    .text a {
+        font-size: 15px;
     }
 }
+@media only screen and (max-width: 600px){
+    .text a {
+        font-size: 15px ;
+    }
+    .buttonMobile{
 
-@media only screen and (max-width: 768px) and (min-height: 1000px) {
+    }
+    .text h1, p {
+        margin-bottom: 10px !important;
+    }
+    .text p {
+        font-size: 13px !important;
+    }
+    .text h1 {
+        font-size: 20px !important;
+    }
     .text {
-        color: red;
+        padding-top: 0.5rem !important;
+    }
+    .image-large {
+        width: 250px !important;
+        height: 250px !important;
+    }
+    .brain {
+        width: 120px !important;
+        padding: 10px 0 20px 90px !important;
+    }
+    .buttonMobile a {
+        font-size: 12px !important;
+    }
+    .buttonMobile {
+        width: 140px !important;
+        height: 50px !important;
+    }
+    .about__left {
+        padding: 2rem 0 2rem 0px !important;
     }
 }
-
+@media only screen and (max-width: 376px) {
+    .buttonMobile {
+        height: 45px !important;
+    }
+    .image-large {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .brain {
+        width: 110px !important;
+    }
+    .text h1 {
+        font-size: 15px !important;
+    }
+    .text p {
+        font-size: 10px !important;
+    }
+    .about__left {
+        padding: 1rem 0 1rem 0px !important;
+    }
+    .main__about {
+        padding: 15px 0 !important;
+    }
+}
 .text {
     padding-top: 3vw;
 }
-
-@media only screen and (max-width: 800px) {
-    .text {
-        color: red;
+@media (max-height:400px)
+{
+    .dots{
+        font-size: 30px !important;
+    }
+    .ham{
+        width:35px !important;
     }
 }
+@media only screen and (max-width: 800px) and (min-height: 500px){
+    .logo {
+        width: 125px;
+        margin-top: 50px;
+    }
 
+    .text {
+        padding-top: 35px;
+    }
+
+        .text h1, p {
+            margin-bottom: 20px;
+        }
+
+        .text h1 {
+            font-size: 50px;
+        }
+
+        .text p {
+            font-size: 30px;
+        }
+
+        .text a {
+            font-size: 18px;
+        }
+
+    .button {
+        width: 185px;
+        height: 65px;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .image-large {
+        width: 500px;
+        height: 500px;
+    }
+
+    .background {
+        background-image: none;
+    }
+
+    .main__about {
+        padding: 40px 0;
+        flex-direction: column;
+    }
+
+    .about__left {
+        padding: 3rem 0 3rem 0px;
+    }
+
+    .about__right {
+        text-align: center;
+    }
+
+    .text {
+        padding-top: 1rem !important;
+    }
+    .logo {
+        margin: 0 0 auto;
+    }
+    .brain {
+        display: block !important;
+        width: 170px;
+        margin: 0 auto;
+        padding: 20px 0 20px 120px;
+        margin-top: 15px;
+    }
+    .image-large {
+        width: 400px;
+        height: 400px;
+    }
+    .buttonMobile {
+        background-color: #52deab;
+        box-shadow: 0 0 10px rgba(62, 198, 149, 0.5);
+        display: block !important;
+        width: 185px;
+        height: 65px;
+        border-radius: 10px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: right;
+        color: white;
+        transition: 0.3s;
+        z-index: 0;
+    }
+        .buttonMobile a {
+            width: 100%;
+            font-family: "Roboto medium";
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+
+        }
+    .text h1 {
+        font-size: 30px;
+    }
+    .text p {
+        font-size: 20px;
+    }
+    .button{
+        display:none;
+    }
+    .logo{
+        padding-top: 20px !important;
+    }
+}
+.buttonMobile{
+    display:none;
+}
+.brain {
+    display: none;
+}
 
 
 /*LOADER*/
@@ -818,7 +1084,7 @@ h6 {
         transform: scale(1);
     }   
 }
-
+/*burger+modal*/
 .dots {
     display: flex;
     flex-direction: column;
