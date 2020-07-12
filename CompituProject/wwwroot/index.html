@@ -18,6 +18,7 @@
     <!--Material Design Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="_content/Blazored.Modal/blazored-modal.css" rel="stylesheet" />
 
     <script type="text/javascript">
         (function (l) {
@@ -40,13 +41,15 @@
 </head>
 
 <body>
-    <app><div class="center-load"><img src="img/load.svg" class ="loading" alt="Load" /></div></app>
+    <app><div class="center-load"><img src="img/load.svg" class="loading" alt="Load" /></div></app>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+    <script src="_content/BlazorAnimate/blazorAnimateInterop.js"></script>
+    <script src="js/scripts.js"></script>
     <script src="decode.js"></script>
     <script src="_framework/blazor.webassembly.js" autostart="false"></script>
     <script>

@@ -1,0 +1,44 @@
+﻿
+@inject CompituProject.Services.IMyModalService  modal
+@inject IToDoListService service
+@inject NavigationManager navigate
+@inject IJSRuntime jsRuntime
+@inject Blazored.Modal.Services.IModalService modals
+
+
+<div class="filter @(modal.IsOpen.Value ? "dark" : string.Empty)" @onclick="modal.Click">
+</div>
+<div class="addListContent">
+    <div class="styled-input">
+        <input type="text" required @bind="@name" @onkeyup="lazyKey"/>
+        <label>Name</label>
+        <span></span>
+    </div>
+    <div class="buttonAdd" @onclick="addNameList">
+        <a>Add</a>
+    </div>
+</div>
+
+@code
+{
+    private string name;
+
+    private async Task lazyKey(KeyboardEventArgs keyboard)
+    {
+        if (keyboard.Key == "Enter")
+            await addNameList();
+    }
+
+    private async Task addNameList()
+    {
+        Models.ToDoListModel model = new Models.ToDoListModel();
+
+        model.Name = name;
+        service.Add(model);
+
+        await jsRuntime.WriteLocalStorage(service.Get());
+
+        navigate.NavigateTo($"list/{model.Id}");
+
+    }
+}

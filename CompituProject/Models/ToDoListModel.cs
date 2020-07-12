@@ -8,6 +8,6 @@ namespace CompituProject.Models
 
         public string Name { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date => DateTime.Now.ToShortDateString();
     }
 }

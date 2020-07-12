@@ -1,13 +1,16 @@
 ﻿@page "/list/{id:int}"
 
-@inject IModalService modal
+@inject IMyModalService modal
+@inject IToDoListService service
+@inject NavigationManager navigate
+@inject IJSRuntime js
 
 <div class="content">
     <div class="container" id="content-retreat">
         <div class="content-header pt-5">
-            <h2 class="content-text">My TestList @Id</h2>
+            <h2 class="content-text">@Name</h2>
             <a href="/CompituProject/">
-                <img class="content-logo" src="img/logo.svg"/>
+                <img class="content-logo" src="img/logo.svg" />
             </a>
         </div>
 
@@ -79,16 +82,39 @@
     [Parameter]
     public int Id { get; set; }
 
-    private List<string> list = new List<string>();
+    public string Name { get; set; }
 
-    protected override void OnInitialized()
-    {
-        /// Обновление кнопки HamButton после закрытия Modal
-        modal.Update += () => StateHasChanged();
-    }
+    private List<string> list = new List<string>();
 
     private void AddToDo()
     {
         list.Add("Test message");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        
+        await service.ReadToDo();
+    }
+
+    protected override void OnParametersSet()
+    {
+
+        // Если осуществляется переход на удалённый лист, то возвращаемся на главную
+        try
+        {
+            Name = service.Get().Find(i => i.Id == Id).Name;
+        }
+        catch
+        {
+            navigate.NavigateTo("/");
+        }
+    }
+   
+    protected override void OnInitialized()
+    {
+
+        /// Обновление кнопки HamButton после закрытия Modal
+        modal.Update += () => StateHasChanged();
     }
 }

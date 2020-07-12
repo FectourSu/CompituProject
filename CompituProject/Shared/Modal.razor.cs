@@ -1,17 +1,22 @@
 ﻿using CompituProject.Models;
 using CompituProject.Services;
 using Microsoft.AspNetCore.Components;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CompituProject.Shared
 {
     public partial class Modal
     {
         [Inject]
-        private IModalService modal { get; set; }
+         IToDoListService service { get; set; }
+
+        [Inject]
+        private IMyModalService modal { get; set; }
 
         [Parameter]
-        public IEnumerable<ToDoListModel> ToDoLists { get; set; }
+        public List<ToDoListModel> ToDoLists { get; set; }
 
         private string cssClassShow = string.Empty;
 
@@ -19,14 +24,13 @@ namespace CompituProject.Shared
         {
             modal.Update += Update;
         }
-
         public async void Update()
         {
             if (modal.IsOpen.Value)
                 cssClassShow = string.Empty;
             else
                 cssClassShow = "show";
-
+       
             await InvokeAsync(StateHasChanged);
         }
     }

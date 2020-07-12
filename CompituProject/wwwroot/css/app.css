@@ -12,7 +12,7 @@
     margin: 0px;
     border: 0px;
 }
-
+.button a{cursor: pointer;}
 *,
 *:before,
 *:after {
@@ -517,7 +517,7 @@ h6 {
     color: white;
 }
 .button {
-    width: 11vw;
+    width: 10vw;
     height: 3.6vw;
     display: flex;
     align-items: center;
@@ -693,11 +693,12 @@ h6 {
     align-items: center;
     -ms-flex-pack: end;
     justify-content: flex-end;
-    border-top: 1px solid #dee2e6;
+    border-top: none !important;
     border-bottom-right-radius: .3rem;
     z-index: 0;
     border-bottom-left-radius: .3rem;
     height: 30%;
+    padding: 0.6rem !important;
 }
 .modal.custom .modal-dialog {
     width:0;
@@ -843,9 +844,7 @@ h6 {
     .text a {
         font-size: 15px ;
     }
-    .buttonMobile{
 
-    }
     .text h1, p {
         margin-bottom: 10px !important;
     }
@@ -878,9 +877,6 @@ h6 {
     }
 }
 @media only screen and (max-width: 376px) {
-    .buttonMobile {
-        height: 45px !important;
-    }
     .image-large {
         width: 200px !important;
         height: 200px !important;
@@ -1035,7 +1031,9 @@ h6 {
     display: none;
 }
 
-
+.buttonMobile a{
+    cursor: pointer;
+}
 /*LOADER*/
 .center-load {
     width: 100%;
@@ -1152,5 +1150,133 @@ button::-moz-focus-inner {
 .fa-plus {
     color: white;
     font-size: 28px;
+    cursor:pointer;
+}
+
+/*ADD modal window*/
+
+input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+    font-size: 0.75em;
+    color: #52bd9d;
+    top: -1.5rem;
+    -webkit-transition: all 0.3s cubic-bezier(0.2, 0, 0.03, 1);
+    transition: all 0.3s cubic-bezier(0.2, 0, 0.03, 1);
+}
+
+.styled-input {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+    .styled-input label {
+        color: #999;
+        padding: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: all 0.3s cubic-bezier(0.2, 0, 0.03, 1);
+        transition: all 0.3s cubic-bezier(0.2, 0, 0.03, 1);
+        pointer-events: none;
+    }
+
+    .styled-input.wide {
+        width: 100%;
+    }
+
+input, textarea {
+    padding: 1rem 1rem;
+    border: 0;
+    width: 300px;
+    font-size: 1rem;
+}
+
+    input ~ span, textarea ~ span {
+        display: block;
+        width: 0;
+        height: 2.5px;
+        background: #3ec695;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        -webkit-transition: all 0.125s cubic-bezier(0.2, 0, 0.02, 1);
+        transition: all 0.3s cubic-bezier(0.2, 0, 0.02, 1);
+    }
+
+    input:focus, textarea:focus {
+        outline: 0;
+    }
+
+        input:focus ~ span, textarea:focus ~ span {
+            width: 100%;
+            -webkit-transition: all 0.3s cubic-bezier(0.2, 0, 0.03, 1);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0.03, 1);
+        }
+
+.blazored-modal-title{
+    color: #52bd9d;
+    font-family: "Roboto light"
+}
+
+.blazored-modal {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 15px !important;
+    border: none !important;
+    padding: 1.5rem;
+    box-shadow: none !important;
+}
+.blazored-modal-close{
+    color: #d66a6a;
+}
+
+.addListContent {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.buttonAdd {
+    width: 100px;
+    height: 51.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    color: white;
+    background-color: #3ec695;
+    transition: 0.3s;
+    z-index: 0;
+    cursor:pointer;
+}
+
+    .buttonAdd:hover {
+        background-color: #52deab;
+        box-shadow: 0 0 10px rgba(62, 198, 149, 0.5);
+    }
+
+@media (max-width:450px)
+{
+    .blazored-modal {
+        border-radius: 0px !important;
+    }
+    .styled-input{
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    .addListContent{
+        margin: 0 !important;
+        display:block;
+    }
+    .buttonAdd{
+        margin: 0 0 0 auto;
+    }
+}
+
+.blazored-modal-header {
+    padding: 0 0 2.5rem 0 !important;
+}
+
+a{
     cursor:pointer;
 }

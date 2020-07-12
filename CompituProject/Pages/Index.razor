@@ -1,17 +1,22 @@
 ﻿@page "/"
 
-@inject IModalService modal
+@inject CompituProject.Services.IMyModalService  modal
+@inject IToDoListService service
+@inject NavigationManager navigate
+@inject IJSRuntime jsRuntime
+@inject Blazored.Modal.Services.IModalService modals
+
 <div class="background">
     <div class="canvas">
         <a href="/CompituProject/">
-            <img class="logo" src="img/logo.svg" width="152px"/>
+            <img class="logo" src="img/logo.svg" width="152px" />
         </a>
     </div>
     <div class="canvas">
         <div class="main__about">
             <div class="about__left">
-                <div class="buttonMobile">
-                    <a href="list/1">ADD NEW LIST</a>
+                <div class="buttonMobile" @onclick="@(()=> modals.Show<AddListModal>("Add list"))">
+                    <a>ADD NEW LIST</a>
                 </div>
                 <img src="img/brainmobile.svg" alt="brain" class="brain" />
                 <img src="img/human.svg" alt="human writing" class="image-large" />
@@ -22,13 +27,14 @@
                         You don't have a to-do <br /> list yet, let's fix it
                     </h1>
                     <p>Get started add new list</p>
-                    <div class="button">
-                        <a href="list/1">ADD NEW LIST</a>
+                    <div class="button" @onclick="@(()=> modals.Show<AddListModal>("Add list"))">
+                        <a>ADD NEW LIST</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="canvas">
     </div>
     <div class="burger">
@@ -36,7 +42,7 @@
     </div>
 </div>
 
-@code {
+@code {      
     protected override void OnInitialized()
     {
         /// Обновление кнопки HamButton после закрытия Modal

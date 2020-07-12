@@ -1,4 +1,8 @@
 ﻿
+@inject IJSRuntime jsDel
+@inject Blazored.Modal.Services.IModalService modals
+@inject NavigationManager navigate
+
 <div class="filter @(modal.IsOpen.Value ? "dark" : string.Empty)" @onclick="modal.Click">
 </div>
 
@@ -9,19 +13,21 @@
 
             <div class="modal-header">
                 <div class="added-list">
-                <i class="fa fa-plus"></i>
-                <h3 class="getlaid" id="trackModalLabel">Select list</h3>
+                    <i class="fa fa-plus" @onclick="@(() => { modals.Show<AddListModal>("Add list"); modal.Click(); })"></i>
+                    <h3 class="getlaid" id="trackModalLabel">Select list</h3>
                 </div>
             </div>
 
             <div class="modal-body">
-                <div class="list">
+
                 @foreach (var list in ToDoLists)
                 {
-                    <a href="list/@list.Id" @onclick="modal.Click"><p>@list.Name</p></a>
+                    <div class="list" style="margin: 10px 0">
+                        <a href="list/@list.Id" @onclick="modal.Click"><p>@list.Name</p></a>
+                        <i class="fa fa-trash" @onclick="async () => await DeleteList(list.Id)"></i>
+                    </div>
                 }
-                <i class="fa fa-trash"></i>
-                </div>
+
             </div>
 
             <div class="modal-footer">
@@ -31,3 +37,17 @@
         </div>
     </div>
 </div>
+
+@code
+{
+    public async Task DeleteList(int id)
+    {
+        service.Delete(id);
+
+        await jsDel.WriteLocalStorage(service.Get());
+
+        if (navigate.Uri.Split("/").LastOrDefault() == id.ToString())
+            navigate.NavigateTo("/");
+
+    }
+}

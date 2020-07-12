@@ -1,15 +1,18 @@
 ﻿@inherits LayoutComponentBase
+@inject IToDoListService listServ
 
-<Modal ToDoLists="new CompituProject.Models.ToDoListModel[]
-                  {
-                      new Models.ToDoListModel
-                      {
-                          Id = 1,
-                          Name = new string(new char[] { 'L', 'i', 's', 't'}),
-                          Date = DateTime.Now
-                      }
-                  }"/>
+<Modal ToDoLists="listServ.Get()" />
+
+<BlazoredModal />
 
 <div class="main">
     @Body
 </div>
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        await listServ.ReadToDo();
+    }
+}

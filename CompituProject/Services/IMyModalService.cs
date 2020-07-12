@@ -2,7 +2,7 @@
 
 namespace CompituProject.Services
 {
-    public interface IModalService
+    public interface IMyModalService
     {
         event Action Update;
 
