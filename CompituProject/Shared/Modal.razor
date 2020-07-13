@@ -44,10 +44,12 @@
     {
         service.Delete(id);
 
+        ToDoLists.Remove(ToDoLists.Find(i => i.Id == id));
+
         await jsDel.WriteLocalStorage(service.Get());
 
         if (navigate.Uri.Split("/").LastOrDefault() == id.ToString())
-            navigate.NavigateTo("/");
+            navigate.NavigateTo("/CompituProject/");
 
     }
 }

@@ -93,13 +93,11 @@
 
     protected override async Task OnInitializedAsync()
     {
-        
         await service.ReadToDo();
     }
 
     protected override void OnParametersSet()
     {
-
         // Если осуществляется переход на удалённый лист, то возвращаемся на главную
         try
         {
@@ -113,7 +111,6 @@
    
     protected override void OnInitialized()
     {
-
         /// Обновление кнопки HamButton после закрытия Modal
         modal.Update += () => StateHasChanged();
     }
