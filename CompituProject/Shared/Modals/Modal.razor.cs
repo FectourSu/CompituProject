@@ -1,16 +1,14 @@
 ﻿using CompituProject.Models;
 using CompituProject.Services;
 using Microsoft.AspNetCore.Components;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace CompituProject.Shared
+namespace CompituProject.Shared.Modals
 {
     public partial class Modal
     {
         [Inject]
-         IToDoListService service { get; set; }
+        IToDoListService service { get; set; }
 
         [Inject]
         private IMyModalService modal { get; set; }
@@ -30,7 +28,7 @@ namespace CompituProject.Shared
                 cssClassShow = string.Empty;
             else
                 cssClassShow = "show";
-       
+
             await InvokeAsync(StateHasChanged);
         }
     }

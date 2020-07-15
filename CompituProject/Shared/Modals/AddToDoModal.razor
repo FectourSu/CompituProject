@@ -1,0 +1,14 @@
+﻿@inherits AddToDoModal<ToDo>
+
+<div class="addListContent" @onkeyup="lazyKey">
+    <div class="styled-input">
+        <input type="text" required @bind="@toDo.Title" />
+        <label>Title</label>
+        <span></span>
+    </div>
+    <br />
+    <div class="buttonAdd" @onclick="AddToDo">
+        <a>Add</a>
+    </div>
+</div>
+

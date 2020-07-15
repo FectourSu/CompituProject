@@ -1,0 +1,66 @@
+﻿
+<EditForm Model="Models">
+    @foreach (var item in Models)
+    {
+        <div class="d-flex align-items-center card" style="flex-direction: row;">
+            <InputCheckbox ValueChanged="async () => await Bind(item)"
+                           Value="item.Completed" ValueExpression="() => item.Completed" AdditionalAttributes="attrebute"/>
+            <h2 href="/">@item.Title</h2>
+            <h4 href="/">@item.SubTitle</h4>
+
+            @if (!item.Completed)
+            {
+                <button @onclick="async () => await AddToDo.InvokeAsync(item.Id)"
+                        style="width: 25px; height: 25px; margin-left: 25px;">+</button>
+            }
+        </div>
+
+        @foreach (var todo in item.ToDos)
+        {
+            <div class="d-flex align-items-center card" style="flex-direction: row; background-color: #f3f3f3;">
+                <input type="checkbox" checked="@todo.Completed" style="margin-left: 40px;"
+                       @onchange="async () => await BindSubToDo(todo, item)"/>
+                <h6 href="/">@todo.Title</h6>
+            </div>
+        }
+
+    }
+</EditForm>
+
+@code {
+    [Parameter]
+    public IEnumerable<GlobalToDo> Models { get; set; }
+
+    [Parameter]
+    public EventCallback<ToDo> Save { get; set; }
+
+    [Parameter]
+    public EventCallback<string> AddToDo { get; set; }
+
+    private Dictionary<string, object> attrebute =
+        new Dictionary<string, object>
+    {
+        { "class" , "СЮДА ПИСАТЬ КЛАССЫ CSS"} /// =)
+    };
+
+    private async Task BindSubToDo(ToDo item, GlobalToDo parent)
+    {
+        item.Completed = !item.Completed;
+
+        var notCompleted = parent.ToDos.Where(i => !i.Completed).Count();
+
+        if(notCompleted == 0)
+        {
+            parent.Completed = true;
+        }
+
+        await Save.InvokeAsync(null);
+    }
+
+    public async Task Bind(GlobalToDo item)
+    {
+        item.Completed = !item.Completed;
+
+        await Save.InvokeAsync(null);
+    }
+}

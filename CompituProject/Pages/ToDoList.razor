@@ -1,9 +1,7 @@
 ﻿@page "/list/{id:int}"
 
 @inject IMyModalService modal
-@inject IToDoListService service
 @inject NavigationManager navigate
-@inject IJSRuntime js
 
 <div class="content">
     <div class="container" id="content-retreat">
@@ -41,13 +39,15 @@
         }
         else
         {
-            <div class="content-todo">
-                @foreach (var item in list)
+            <div class="content-todo mt-5">
+               <ToDoView Models="list.Where(i => !i.Completed)" Save="Save" AddToDo="AddToDo"></ToDoView>
+
+                @if (list.Where(i => i.Completed).Count() != 0)
                 {
-
-                    <a href="/">@item</a>
-
+                    <h2>Completed (@list.Where(i => i.Completed).Count())</h2>
                 }
+
+               <ToDoView Models="list.Where(i => i.Completed)" Save="Save" AddToDo="AddToDo"></ToDoView>
             </div>
         }
     </div>
@@ -56,7 +56,7 @@
 <div class="content-button mt-2">
     <div class="block-retreat">
         <div class="button-block">
-            <button class="btn btn-radius" @onclick="AddToDo">
+            <button class="btn btn-radius" @onclick="AddGlobalToDo">
                 <span class="material-icons">
                     add
                 </span>
@@ -67,51 +67,20 @@
     </div>
 </div>
 <div class="burger-todo">
-    <button class="no-hover" style="text-align:left" @onclick="modal.Click">
-        <div class="dots">
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
+    <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="no-hover"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align:left">
+                <div class="dots">
+                    <span>.</span>
+                    <span>.</span>
+                    <span>.</span>
+                </div>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" @onclick="CompletedAll">Completed All</a>
+                <a class="dropdown-item" href="#">Back</a>
+            </div>
         </div>
-    </button>
+
     <HamButton Visible="true" IsActive="modal.IsOpen" Click="modal.Click" />
 </div>
-
-
-@code {
-    [Parameter]
-    public int Id { get; set; }
-
-    public string Name { get; set; }
-
-    private List<string> list = new List<string>();
-
-    private void AddToDo()
-    {
-        list.Add("Test message");
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await service.ReadToDo();
-    }
-
-    protected override void OnParametersSet()
-    {
-        // Если осуществляется переход на удалённый лист, то возвращаемся на главную
-        try
-        {
-            Name = service.Get().Find(i => i.Id == Id).Name;
-        }
-        catch
-        {
-            navigate.NavigateTo("/CompituProject/");
-        }
-    }
-   
-    protected override void OnInitialized()
-    {
-        /// Обновление кнопки HamButton после закрытия Modal
-        modal.Update += () => StateHasChanged();
-    }
-}
