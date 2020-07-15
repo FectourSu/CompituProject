@@ -15,9 +15,9 @@ namespace CompituProject.Services
         private readonly IJSRuntime _jSRuntime;
 
         
-        public ToDoListService(IJSRuntime jsRuntime)
+        public ToDoListService(IJSRuntime JsRuntime)
         {
-            this._jSRuntime = jsRuntime;
+            this._jSRuntime = JsRuntime;
             todoLists = new List<ToDoListModel>();
         }
 
