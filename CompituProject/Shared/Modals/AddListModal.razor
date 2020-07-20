@@ -2,7 +2,7 @@
 @inject IToDoListService service
 @inject NavigationManager navigate
 @inject IJSRuntime jsRuntime
-@inject Blazored.Modal.Services.IModalService modals
+
 
 
 <div class="filter @(modal.IsOpen.Value ? "dark" : string.Empty)" @onclick="modal.Click">
@@ -20,6 +20,9 @@
 
 @code
 {
+    [CascadingParameter]
+    BlazoredModalInstance BlazoredModal { get; set; }
+
     private string name;
 
     private async Task lazyKey(KeyboardEventArgs keyboard)
@@ -36,7 +39,7 @@
         service.Add(model);
 
         await jsRuntime.WriteLocalStorage(service.Get());
-
+        await BlazoredModal.Close();
         navigate.NavigateTo($"list/{model.Id}");
 
     }

@@ -15,10 +15,10 @@ namespace CompituProject
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
-
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddScoped<IMyModalService, ModalService>();
             builder.Services.AddSingleton<IToDoListService, ToDoListService>();
+
             builder.Services.AddBlazoredModal();
 
             await builder.Build().RunAsync();

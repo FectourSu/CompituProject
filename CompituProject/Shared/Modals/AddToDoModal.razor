@@ -1,18 +1,16 @@
 ﻿@inherits AddToDoModal<ToDo>
 
-<EditForm Model="toDo" OnValidSubmit="AddToDo">
-    <DataAnnotationsValidator />
-    <div class="addListContent" @onkeyup="lazyKey">
-        <div class="styled-input">
-            <input type="text" required @bind="@toDo.Title" />
-            <label>Title</label>
-            <span></span>
-            <ValidationMessage For="@(() => toDo.Title)" />
-        </div>
-        <br />
-        <div class="buttonAdd" @onclick="AddToDo">
-            <a>Add</a>
-        </div>
+<div class="add-todo-content" @onkeyup="lazyKey">
+    <div class="add-todo">
+        <input type="text" required @bind="@toDo.Title" />
+        <label>Subtask name</label>
+        <span></span>
     </div>
-</EditForm>
+    <br />
 
+    <div class="add-container">
+        <button class="btn add-todo-button" @onclick="AddToDo">
+            Add
+        </button>
+    </div>
+</div>

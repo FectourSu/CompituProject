@@ -12,6 +12,8 @@ namespace CompituProject
         [CascadingParameter]
         BlazoredModalInstance BlazoredModal { get; set; }
 
+        public bool addSubtitle = false;
+
         [Parameter]
         public EventCallback<TItem> CallbackAddToDo { get; set; }
 
@@ -28,7 +30,7 @@ namespace CompituProject
             if (CallbackAddToDo.HasDelegate)
                 await CallbackAddToDo.InvokeAsync(toDo);
 
-            BlazoredModal.Close();
+            await BlazoredModal.Close();
         }
     }
 }

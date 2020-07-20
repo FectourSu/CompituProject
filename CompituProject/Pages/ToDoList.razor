@@ -39,19 +39,39 @@
         }
         else
         {
-            <div class="content-todo mt-5">
-               <ToDoView Models="list.Where(i => !i.Completed)" Save="Save" AddToDo="AddToDo"></ToDoView>
 
-                @if (list.Where(i => i.Completed).Count() != 0)
-                {
-                    <h2>Completed (@list.Where(i => i.Completed).Count())</h2>
-                }
+    <div class="content-todo mt-5">
+        @if (list.Any(i => !i.Completed))
+        {
+            <ToDoView Models="list.Where(i => !i.Completed)" Save="Save" AddToDo="AddToDo"></ToDoView>
+        }
 
-               <ToDoView Models="list.Where(i => i.Completed)" Save="Save" AddToDo="AddToDo"></ToDoView>
+        <ul class="accordionTodo">
+            <li>
+                <input type="checkbox" @bind="hiddenCompiled">
+                <i class="arrowUp"></i>
+                <p class="completed">Completed (@list.Where(i => i.Completed).Count())</p>
+                <div class="hideTodoList"><ToDoView Models="list.Where(i => i.Completed)" Save="Save" AddToDo="AddToDo"></ToDoView></div>
+            </li>
+        </ul>
+
+
+        @if (list.Where(i => !i.Completed).Count() == 0 && hiddenCompiled)
+        {
+            <div class="completed-container">
+                <div class="completed-img">
+                    <img src="img/compeled.svg" />
+                </div>
+                <div class="content-subtext pt-3">
+                    <h3 class="text-color__grey">All todos compeled</h3>
+                    <span>added task, plese</span>
+                </div>
             </div>
         }
     </div>
-</div>
+                    }
+        </div>
+</div>        
 
 <div class="content-button mt-2">
     <div class="block-retreat">
@@ -67,7 +87,8 @@
     </div>
 </div>
 <div class="burger-todo">
-    <div class="btn-group" role="group">
+    <div class="left">
+        <div class="btn-group" role="group">
             <button id="btnGroupDrop1" type="button" class="no-hover"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align:left">
                 <div class="dots">
@@ -78,9 +99,11 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" @onclick="CompletedAll">Completed All</a>
-                <a class="dropdown-item" href="#">Back</a>
+                <a class="dropdown-item" href="/CompituProject/">Back</a>
             </div>
         </div>
-
-    <HamButton Visible="true" IsActive="modal.IsOpen" Click="modal.Click" />
+    </div>
+    <div class="right">
+        <HamButton Visible="true" IsActive="modal.IsOpen" Click="modal.Click" />
+    </div>
 </div>

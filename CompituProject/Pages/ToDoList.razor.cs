@@ -14,7 +14,7 @@ namespace CompituProject.Pages
 {
     public partial class ToDoList
     {
-        [Inject]
+        [CascadingParameter]
         public IModalService blazorModal { get; set; }
 
         [Inject]
@@ -25,6 +25,8 @@ namespace CompituProject.Pages
 
         [Parameter]
         public int Id { get; set; }
+
+        public bool hiddenCompiled = true;
 
         /// <summary>
         /// Имя ToDoList
@@ -55,7 +57,7 @@ namespace CompituProject.Pages
             param.Add(nameof(AddGlobalToDoModal.CallbackAddToDo),
                 EventCallback.Factory.Create<GlobalToDo>(this, CallbackAddGlobalToDo));
 
-            var modal = blazorModal.Show<AddGlobalToDoModal>("Add", param);
+            var modal = blazorModal.Show<AddGlobalToDoModal>("Add task", param);
         }
 
         /// <summary>
@@ -78,7 +80,7 @@ namespace CompituProject.Pages
             param.Add(nameof(AddToDoModal.CallbackAddToDo),
                 EventCallback.Factory.Create<ToDo>(this, CallbackAddToDo));
 
-            var modal = blazorModal.Show<AddToDoModal>("Add", param);
+            var modal = blazorModal.Show<AddToDoModal>("Add subtask", param);
         }
 
         /// <summary>
@@ -109,6 +111,7 @@ namespace CompituProject.Pages
             modal.Update += () => StateHasChanged();
 
             await service.ReadToDo();
+
         }
 
         protected override void OnParametersSet()

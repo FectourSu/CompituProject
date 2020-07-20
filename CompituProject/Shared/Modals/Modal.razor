@@ -1,6 +1,6 @@
 ﻿
 @inject IJSRuntime jsDel
-@inject Blazored.Modal.Services.IModalService modals
+
 @inject NavigationManager navigate
 
 <div class="filter @(modal.IsOpen.Value ? "dark" : string.Empty)" @onclick="modal.Click">
@@ -13,7 +13,7 @@
 
             <div class="modal-header">
                 <div class="added-list">
-                    <i class="fa fa-plus" @onclick="@(() => { modals.Show<AddListModal>("Add list"); modal.Click(); })"></i>
+                    <i class="fa fa-plus" @onclick="@(() => { modalService.Show<AddListModal>("Add list"); modal.Click(); })"></i>
                     <h3 class="getlaid" id="trackModalLabel">Select list</h3>
                 </div>
             </div>
@@ -40,6 +40,9 @@
 
 @code
 {
+    [CascadingParameter]
+    public IModalService modalService { get; set; }
+
     public async Task DeleteList(int id)
     {
         service.Delete(id);

@@ -1,22 +1,35 @@
 ﻿@inherits AddToDoModal<GlobalToDo>
+@inject IJSRuntime js
 
-<EditForm Model="toDo" OnValidSubmit="AddToDo">
-    <DataAnnotationsValidator />
-    <div class="addListContent" @onkeyup="lazyKey">
-        <div class="styled-input">
-            <input type="text" required @bind="@toDo.Title" />
-            <label>Title</label>
-            <span></span>
-            <ValidationMessage For="@(() => toDo.Title)" />
-        </div>
-        <br />
-        <div class="styled-input">
-            <input type="text" required @bind="@toDo.SubTitle" />
-            <label>SubTitle</label>
-            <span></span>
-        </div>
-        <button class="btn buttonAdd">
-            Add
-        </button>
+<div class="add-todo-content" @onkeyup="lazyKey">
+    <div class="add-todo">
+        <input type="text" required @bind="@toDo.Title" />
+        <label>Task name</label>
+        <span></span>
     </div>
-</EditForm>
+    <br />
+    @if (addSubtitle == true)
+    {
+        <div class="add-todo">
+            <input type="text" required @bind="@toDo.SubTitle" />
+            <label>Additional Information</label>
+            <span></span>
+        </div>
+    }
+
+<div class="add-container">
+    <i class="fas fa-align-left" @onclick="() => addSubtitle = true"></i>
+    <input type="datetime-local" class="datepick"  @onchange="@EndDate_change"/>
+    <button class="btn add-todo-button" @onclick="AddToDo">
+        Add
+    </button>
+</div>
+</div>
+@code{
+   
+    protected void EndDate_change(ChangeEventArgs endDateEvent)
+    {
+        toDo.DateTime = Convert.ToDateTime(endDateEvent.Value);
+        StateHasChanged();
+    }
+}
