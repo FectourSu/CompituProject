@@ -758,9 +758,6 @@ h6 {
         width: 100%  !important;
         padding: 0 !important;
     }
-    .content-todo {
-    max-height: 73% !important;
-    }
     .burger {
         padding: 10px !important;
     }
@@ -1370,7 +1367,7 @@ a{
 
 @media (max-width:450px) {
     .content-todo {
-        max-height: 80% !important;
+        max-height: 72% !important;
     }
     .mt-5, .my-5 {
         margin-top: 2rem !important;
