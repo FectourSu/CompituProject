@@ -5,14 +5,17 @@
         </Found>
         <NotFound>
             <LayoutView Layout="@typeof(MainLayout)">
-                <img src="/img/adaptiveHuman.svg" style="        
-            width: 40%;
-            height: 100%;
-            margin: 0 auto;
-            position: fixed;
-            left: 0;
-            right: 0;
-                "/>
+                <div class="notFound">
+                    <button class="btn btn-radius" href="/CompituProject/">
+                        <i class="fas fa-angle-left"></i>
+                        <span class="text-famaly__roboto mr-1">Go back home</span>
+                    </button>
+                    <img src="/img/notFound.svg" />
+                    <div class="content-subtext pt-5">
+                        <h3 class="text-color__grey">ERROR</h3>
+                        <span>OOop's! Sorry, page not found. Maybe back?</span>
+                    </div>
+                </div>
             </LayoutView>
         </NotFound>
     </Router>
