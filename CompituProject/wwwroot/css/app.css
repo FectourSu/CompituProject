@@ -793,7 +793,19 @@ h6 {
         max-width: 220px !important;
     }
 }
+@media (max-height:500px)
+{   
+    .content-body {
+        height: 42% !important;
+    }
+}
 @media (max-width: 500px) and (max-height: 500px)
+{
+    .content-todo {
+        max-height: 72% !important;
+    }
+}
+@media (min-width: 500px) and (max-height: 500px)
 {
     .content-todo {
         max-height: 72% !important;
