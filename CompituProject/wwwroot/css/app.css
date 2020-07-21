@@ -789,6 +789,9 @@ h6 {
 }
 @media (max-width: 500px)
 {
+    .content-todo {
+        max-height: 72% !important;
+    }
     .titleTodo, .subT {
         max-width: 220px !important;
     }
@@ -1366,9 +1369,6 @@ a{
 /*two page*/
 
 @media (max-width:450px) {
-    .content-todo {
-        max-height: 72% !important;
-    }
     .mt-5, .my-5 {
         margin-top: 2rem !important;
     }
