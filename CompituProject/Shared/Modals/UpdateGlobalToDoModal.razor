@@ -1,38 +1,57 @@
-﻿@*@inherits UpdateToDoModal<GlobalToDo>
-@inject IJSRuntime js
-
+﻿
 <div class="add-todo-content" @onkeyup="lazyKey">
     <div class="add-todo">
-        <input type="text" required @bind="@toDo.Title" />
-        <label>Task name</label>
+        <input type="text" required @bind="upToDo.Title" />
+        <label>New task name</label>
         <span></span>
     </div>
     <br />
-    @if (addSubtitle == true)
-    {
-        <div class="add-todo">
-            <input type="text" required @bind="@toDo.SubTitle" />
-            <label>Additional Information</label>
+    <div class="add-todo">
+            <input type="text" required @bind="upToDo.SubTitle" />
+            <label>New additional Information</label>
             <span></span>
-        </div>
-    }
+     </div>
 
     <div class="add-container">
-        <i class="fas fa-align-left" @onclick="() => addSubtitle = true"></i>
-        <input type="datetime-local" class="datepick" @onchange="@EndDate_change" />
+        <input type="datetime-local" class="datepick" @onchange="EndDate_change" value="@Convert.ToDateTime(upToDo.DateTime).ToString("yyyy-MM-ddThh:mm")"/>
         <button class="btn add-todo-button" @onclick="AddToDo">
-            Add
+            Update
         </button>
     </div>
 </div>
+
 @code{
+
+    [CascadingParameter]
+    BlazoredModalInstance BlazoredModal { get; set; }
+
+    [Parameter]
+    public EventCallback CallbackUpdateToDo { get; set; }
+
+    [Parameter]
+    public GlobalToDo upToDo { get; set; }
+
+    public async Task lazyKey(KeyboardEventArgs keyboard)
+    {
+        if (keyboard.Key == "Enter")
+            await AddToDo();
+    }
+
+    public async Task AddToDo()
+    {
+        if (CallbackUpdateToDo.HasDelegate)
+            await CallbackUpdateToDo.InvokeAsync(upToDo);
+
+        StateHasChanged();
+        await BlazoredModal.Close();
+    }
 
     protected void EndDate_change(ChangeEventArgs endDateEvent)
     {
         DateTime.TryParse(endDateEvent.Value.ToString(), out DateTime tempTime);
 
-        toDo.DateTime = tempTime;
+        upToDo.DateTime = tempTime;
 
         StateHasChanged();
     }
-}*@
+}

@@ -1342,6 +1342,7 @@ input, textarea {
 {
     .blazored-modal {
         border-radius: 0px !important;
+        width:100%;
     }
     .styled-input{
         margin-bottom: 1rem;
@@ -1455,6 +1456,7 @@ input[type="datetime-local"] {
     font-family: "Roboto light";
     color: #469b74;
     font-size:18px;
+    background-color:white;
 }
 
 input::-webkit-datetime-edit {

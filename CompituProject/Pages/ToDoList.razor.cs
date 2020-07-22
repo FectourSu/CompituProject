@@ -43,13 +43,16 @@ namespace CompituProject.Pages
         /// <summary>
         /// Выполняется после нажатия на кнопку Add в модальном окне AddGlobalToDoModal
         /// </summary>
-        private async Task CallbackAddGlobalToDo(GlobalToDo toDo)
+        public async Task CallbackAddGlobalToDo(GlobalToDo toDo)
         {
             list.Add(toDo);
 
             await Save();
         }
 
+        /// <summary>
+        /// Вызов модального окна отвечающего за добавление задачи
+        /// </summary>
         public void AddGlobalToDo()
         {
             var param = new ModalParameters();
