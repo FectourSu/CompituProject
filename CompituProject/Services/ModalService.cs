@@ -7,7 +7,6 @@ namespace CompituProject.Services
         public event Action Update;
 
         public bool? IsOpen { get; set; } = false;
-     
         public void Click()
         {
             Update?.Invoke();

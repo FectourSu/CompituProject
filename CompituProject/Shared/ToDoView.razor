@@ -13,7 +13,7 @@
                 </div>
             </label>
             <div class="todoContainer @(item.DateTime != default ? "helpCont" : string.Empty)">
-                <div class="titleTodo">
+                <div class="titleTodo @(item.Completed ? "text-line" : string.Empty)">
                     <span>@item.Title</span>
                     <p class="subT">@item.SubTitle</p>
                 </div>
@@ -55,7 +55,7 @@
                             </svg>
                         </div>
                     </label>
-                    <div class="titleTodo">
+                    <div class="titleTodo @(item.Completed ? "text-line" : string.Empty)">
                         <span>@todo.Title</span>
                     </div>
                 </div>
@@ -128,6 +128,11 @@
     {
         await Task.Delay(600);
         item.Completed = !item.Completed;
+
+        foreach (var subTodo in item.ToDos)
+        {
+            subTodo.Completed = true;
+        }
 
         await Save.InvokeAsync(null);
     }

@@ -1888,3 +1888,7 @@ input[type="checkbox"] {
 .fa-angle-left{
     padding-right:5px
 }
+.text-line{
+    text-decoration:line-through;
+    color: #4d4d4d;
+}
