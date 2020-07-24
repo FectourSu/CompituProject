@@ -27,7 +27,6 @@ function notifyMe() {
     var notification = new Notification("Compitu notifice", {
         tag: "ache-mail",
         body: "Your tasks are either not performed, or have become obsolete.\nHave time to complete them :)",
-        icon: "https://psv4.userapi.com/c856336/u155561278/docs/d13/45c862de4b57/document.png?extra=QBiBmcf-QucKeJiYGgtpFBJBBUas2UK8TjOArTQaeJApWEwLWLat8oUI88cdRrCkt8pGwOJK4AIsqFKUUmVB0PcBo4xbCYyIAES8M4IV80xZqrX_p6xswjrQa9hB62gqDeWuWRxSEjRpsPKl9HQzv2hkOQ"
     });
 }
 
