@@ -19,7 +19,7 @@ namespace CompituProject.Helpers
         }
         public async static Task DatePush(this IJSRuntime jSRuntime, IEnumerable<GlobalToDo> todo)
         {
-            await jSRuntime.InvokeVoidAsync("notifSet", todo);
+            await jSRuntime.InvokeVoidAsync("blazorNotifSet", todo);
         }
     }
 }

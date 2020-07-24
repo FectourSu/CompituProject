@@ -31,7 +31,7 @@ function notifyMe() {
     });
 }
 
-window.notifSet = (todo) => {
+window.blazorNotifSet = (todo) => {
     if (!("Notification" in window))
         alert("Your browser does not support notifications!");
     else if (Notification.permission === "granted")
