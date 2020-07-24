@@ -14,7 +14,8 @@ function datePush(todo) {
             arr[i] = new Date(time).toLocaleDateString();
 
             for (var j = 0; j < arr.length; j++) {
-                if (arr[i] <= new Date().toLocaleDateString()) {
+                if (arr[i] == new Date().toLocaleDateString() || arr[i] < new Date().toLocaleDateString())
+                {
                     notifyMe();
                     return;
                 }
@@ -32,8 +33,7 @@ function notifyMe() {
 }
 
 window.blazorNotifSet = (todo) => {
-    if (!("Notification" in window))
-        alert("Your browser does not support notifications!");
+    if (!("Notification" in window)){}
     else if (Notification.permission === "granted")
         datePush(todo);
     else if (Notification.permission !== "denied")
