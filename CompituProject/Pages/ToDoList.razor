@@ -45,7 +45,6 @@
         {
             <ToDoView Models="list.Where(i => !i.Completed)" Save="Save" AddToDo="AddToDo"></ToDoView>
         }
-
         <ul class="accordionTodo">
             <li>
                 <input type="checkbox" @bind="hiddenCompiled">
@@ -107,3 +106,9 @@
         <HamButton Visible="true" IsActive="modal.IsOpen" Click="modal.Click" />
     </div>
 </div>
+@code{
+    protected override async Task OnAfterRenderAsync(bool firstrender)
+    {
+        await js.DatePush(list);
+    }
+}

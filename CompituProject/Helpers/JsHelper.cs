@@ -17,5 +17,9 @@ namespace CompituProject.Helpers
         {
             return await jSRuntime.InvokeAsync<List<ToDoListModel>>("blazorReadLocalStorage");
         }
+        public async static Task DatePush(this IJSRuntime jSRuntime, IEnumerable<GlobalToDo> todo)
+        {
+            await jSRuntime.InvokeVoidAsync("notifSet", todo);
+        }
     }
 }

@@ -27,7 +27,7 @@
 </div>
 @code{
 
-    protected void EndDate_change(ChangeEventArgs endDateEvent)
+    protected async void EndDate_change(ChangeEventArgs endDateEvent)
     {
         DateTime.TryParse(endDateEvent.Value.ToString(), out DateTime tempTime);
 
