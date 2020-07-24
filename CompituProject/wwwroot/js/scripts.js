@@ -26,7 +26,7 @@ function datePush(todo) {
 function notifyMe() {
     var notification = new Notification("Compitu notifice", {
         tag: "ache-mail",
-        body: "Your tasks are either not performed, or have become obsolete.\nHave time to complete them :)",
+        body: "Your tasks are either not performed, or have become obsolete.\nHave time to complete them :)"
     });
 }
 
