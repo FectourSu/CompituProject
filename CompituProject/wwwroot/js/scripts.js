@@ -14,7 +14,7 @@ function datePush(todo) {
             arr[i] = new Date(time).toLocaleDateString();
 
             for (var j = 0; j < arr.length; j++) {
-                if (arr[i] == new Date().toLocaleDateString() || arr[i] < new Date().toLocaleDateString())
+                if (arr[i] == new Date().toLocaleDateString() || arr[i] < new Date().toLocaleDateString() && arr[i] != "01.01.1")
                 {
                     notifyMe();
                     return;
@@ -32,7 +32,10 @@ function notifyMe() {
 }
 
 window.blazorNotifSet = (todo) => {
-    if (!("Notification" in window)){}
+    if (!("Notification" in window))
+    {
+        return;
+    }
     else if (Notification.permission === "granted")
         datePush(todo);
     else if (Notification.permission !== "denied")

@@ -15,7 +15,7 @@
         @if (!list.Any())
         {
             <div class="content-body">
-                <div class="content-img pt-5" id="wide-image-format">
+                <div class="content-img mg-2" id="wide-image-format">
                     <div class="content-img__item">
                         <img src="img/girl fix.svg" />
                     </div>
@@ -27,11 +27,11 @@
                     </div>
                 </div>
 
-                <div class="content-img" id="compressed-image-format">
+                <div class="content-img mg-1" id="compressed-image-format">
                     <img src="img/adaptiveHuman.svg" />
                 </div>
 
-                <div class="content-subtext pt-5">
+                <div class="content-subtext mg-1">
                     <h3 class="text-color__grey">List have not tasks</h3>
                     <span>added task, plese</span>
                 </div>
@@ -58,10 +58,10 @@
         @if (list.Where(i => !i.Completed).Count() == 0 && hiddenCompiled)
         {
             <div class="completed-container">
-                <div class="completed-img">
+                <div class="completed-img mg-1">
                     <img src="img/compeled.svg" />
                 </div>
-                <div class="content-subtext pt-3">
+                <div class="content-subtext mg-1">
                     <h3 class="text-color__grey">All todos compeled</h3>
                     <span>added task, plese</span>
                 </div>

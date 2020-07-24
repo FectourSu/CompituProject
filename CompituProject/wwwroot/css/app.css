@@ -162,6 +162,10 @@ h6 {
 }
 
 .content-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
     flex-grow: 1;
 }
 
@@ -228,7 +232,12 @@ h6 {
     flex-direction: column;
     justify-content: center;
 }
-
+@media (max-width:450px)
+{
+    .content-subtext .mg-1{
+        margin-top: 2rem !important;
+    }
+}
 .content-todo {
     height: 100%;
     width: 100%;
@@ -315,7 +324,9 @@ h6 {
 }
 
 @media only screen and (max-width: 450px) {
-
+    .content-text {
+        max-width: 100% !important;
+    }
     input[type="datetime-local"]{
         font-size: 13px !important;
     }
@@ -376,10 +387,6 @@ h6 {
         padding-bottom: 15px;
     }
 
-    .content-subtext {
-        padding-top: 1.4rem !important;
-    }
-
     .content-button .menu-block.pt-4 {
         padding: 0.5rem !important;
     }
@@ -395,7 +402,6 @@ h6 {
     display: inline-flex;
     width: 100%;
     justify-content: center;
-    padding-top: 1rem ;
 }
 
 .completed-img img {
@@ -922,6 +928,11 @@ h6 {
         font-size: 15px;
     }
 }
+.text h1, p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 @media only screen and (max-width: 600px){
     .text a {
         font-size: 15px ;
@@ -1242,12 +1253,13 @@ button::-moz-focus-inner {
     cursor:pointer;
 }
 
-.list a{
+.list a {
     height: 30px;
-    width:100%;
+    width: 100%;
     text-decoration: none;
     font-size: 20px;
     color: #469b74;
+    max-width: 90%;
 }
 .added-list {
     display: flex;
@@ -1850,7 +1862,12 @@ input[type="checkbox"] {
     margin-top: 30px;
 }
 
-
+.mg-2{
+    margin-top: 2rem;
+}
+.mg-1{
+    margin-top: 1.5rem;
+}
 /*404 PAGE*/
 .notFound {
     width: 100%;
