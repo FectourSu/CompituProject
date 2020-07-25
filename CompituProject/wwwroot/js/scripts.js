@@ -40,7 +40,7 @@ window.blazorNotifSet = (todo) => {
 
 function showNotification(title) {
 
-    navigator.serviceWorker.register('Worker.js');
+    navigator.serviceWorker.register('js/Worker.js');
 
     Notification.requestPermission(function (result) {
         if (result === 'granted') {
