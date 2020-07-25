@@ -723,6 +723,7 @@ h6 {
         color: white;
         background-color: #3ec695;
         font-family: "Roboto Regular";
+        border-bottom: 0 !important;
     }
 
     .getlaid {
@@ -1982,9 +1983,11 @@ h6 {
 .mg-2{
     margin-top: 2rem;
 }
+
 .mg-1{
     margin-top: 1rem;
 }
+
 /*404 PAGE*/
 .notFound {
     width: 100%;
