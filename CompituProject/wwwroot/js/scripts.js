@@ -16,9 +16,7 @@ function datePush(todo) {
         for (var j = 0; j < dates.length; j++) {
             if (dates[i] <= new Date() && dates[i] != "01.01.1")
                 {
-                    console.log('what');
                     showNotification(notCompleted[i].title);
-                    showPCnotification(notCompleted[i].title);
                     return;
                 }
             }
@@ -41,12 +39,20 @@ window.blazorNotifSet = (todo) => {
 }
 
 function showNotification(title) {
-    var workerContainerInstance = navigator.serviceWorker.ready.then(function (registration) {
-        registration.showNotification('Compitu notifice', {
-            body: "Время задачи: " + title + " истекло",
-            icon: 'https://psv4.userapi.com/c856336/u155561278/docs/d13/b27e672b1446/document.png?extra=baPj9Vj32e-aWBnSX_ZYoKdF923s3j8yojbncD1yWwE8IO-R5l6NcV0v2zy9GzXa_Qr0LdItjzt05Ju1TxYaZRx199iLZynU0jYWsfXTNgjPIY5HM2pYN5w5pLwBKN42cijm5JiAgIDv7CLUb5odgJBg',
-            vibrate: [200, 100, 200, 100, 200, 100, 200],
-            tag: 'vibration-sample'
-        });
+
+    navigator.serviceWorker.register('Worker.js');
+
+    Notification.requestPermission(function (result) {
+        if (result === 'granted') {
+            navigator.serviceWorker.ready.then(function (registration) {
+                registration.showNotification('Compitu notifice', {
+                    body: "Время задачи: " + title + " истекло",
+                    icon: 'https://psv4.userapi.com/c856336/u155561278/docs/d13/b27e672b1446/document.png?extra=baPj9Vj32e-aWBnSX_ZYoKdF923s3j8yojbncD1yWwE8IO-R5l6NcV0v2zy9GzXa_Qr0LdItjzt05Ju1TxYaZRx199iLZynU0jYWsfXTNgjPIY5HM2pYN5w5pLwBKN42cijm5JiAgIDv7CLUb5odgJBg',
+                    vibrate: [200, 100, 200, 100, 200, 100, 200],
+                    tag: 'vibration-sample'
+
+                });
+            });
+        }
     });
 }
