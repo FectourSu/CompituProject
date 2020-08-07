@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');
 ﻿body {
     font-family: 'Roboto', sans-serif !important;
 }
@@ -167,8 +168,25 @@ h6 {
     text-overflow: ellipsis;
     max-width: 60%;
     flex-grow: 1;
+    color: #4d4d4d;
 }
+@media(max-height: 650px) and (max-width: 600px)
+{
+    .main__about {
+        zoom: 0.8;
+    }
+}
+@media (max-width:370){
+    .main__about{
+        zoom: 1 !important;
+    }
+}
+@media (min-height: 500px){
+    .text {
+        padding-top: 3rem !important;
+    }
 
+}
 .content-header a {
     width: 125px;
     align-items: center;
@@ -379,7 +397,7 @@ h6 {
     .content-header {
         display: flex;
         flex-direction: column-reverse;
-        padding-top: 1.5rem !important;
+        padding-top: 3rem !important;
         padding-left: 1.5rem;
     }
 
@@ -556,7 +574,8 @@ h6 {
     }
 
         .text h1 {
-            font-family: "Roboto medium";
+            font-family: "Roboto";
+            font-weight: 500;
             color: #4d4d4d;
             margin-bottom: 1vw;
             line-height: 1.2;
@@ -564,7 +583,8 @@ h6 {
         }
 
         .text p {
-            font-family: "Roboto regular";
+            font-family: "Roboto";
+            font-weight: 400;
             color: #b3b3b3;
             font-size: 1.5vw;
             margin-bottom: 1.9vw;
@@ -573,7 +593,8 @@ h6 {
 
         .text a {
             width: 100%;
-            font-family: "Roboto medium";
+            font-family: "Roboto";
+            font-weight: 500;
             font-size: 0.9vw;
             text-decoration: none;
             color: white;
@@ -722,13 +743,14 @@ h6 {
         padding: 1rem 1rem;
         color: white;
         background-color: #3ec695;
-        font-family: "Roboto Regular";
+        font-family: "Roboto";
         border-bottom: 0 !important;
     }
 
     .getlaid {
         margin: 0 !important;
-        font-family: "Roboto light";
+        font-family: "Roboto";
+        font-weight: 300;
     }
 
     .modal {
@@ -898,7 +920,7 @@ h6 {
     @media only screen and (max-width: 1300px) and (min-height: 900px) {
         .logo {
             width: 125px;
-            margin-top: 50px;
+            padding-top: 3rem;
         }
 
         .text {
@@ -992,7 +1014,7 @@ h6 {
         }
 
         .content-header {
-            padding: 0 1rem;
+            padding: 0 2rem;
         }
 
         .text h1, p {
@@ -1017,8 +1039,8 @@ h6 {
         }
 
         .brain {
-            width: 120px !important;
-            padding: 10px 0 20px 90px !important;
+            width: 108px !important;
+            padding: 10px 0 20px 80px !important;
         }
 
         .buttonMobile a {
@@ -1176,7 +1198,8 @@ h6 {
 
             .buttonMobile a {
                 width: 100%;
-                font-family: "Roboto medium";
+                font-family: "Roboto";
+                font-weight: 500;
                 font-size: 18px;
                 text-decoration: none;
                 color: white;
@@ -1200,7 +1223,7 @@ h6 {
         }
 
         .logo {
-            padding-top: 20px !important;
+            padding-top: 3rem !important;
         }
     }
 
@@ -1429,10 +1452,11 @@ h6 {
                 transition: all 0.3s cubic-bezier(0.2, 0, 0.03, 1);
             }
 
-    .blazored-modal-title {
-        color: #52bd9d;
-        font-family: "Roboto light"
-    }
+.blazored-modal-title {
+    color: #52bd9d;
+    font-family: "Roboto";
+    font-weight: 100;
+}
 
     .blazored-modal {
         display: flex;
@@ -1590,7 +1614,8 @@ h6 {
         padding: 0;
         -webkit-padding-start: 1px;
         flex-direction: row-reverse;
-        font-family: "Roboto light";
+        font-family: "Roboto";
+        font-weight:300;
         color: #469b74;
         font-size: 18px;
         background-color: white;
@@ -1626,17 +1651,18 @@ h6 {
     }
 
 
-    input[type="checkbox"] {
-        -webkit-align-items: center;
-        display: flex;
-        overflow: hidden;
-        padding: 0;
-        -webkit-padding-start: 1px;
-        flex-direction: row-reverse;
-        font-family: "Roboto light";
-        color: #469b74;
-        font-size: 18px;
-    }
+input[type="checkbox"] {
+    -webkit-align-items: center;
+    display: flex;
+    overflow: hidden;
+    padding: 0;
+    -webkit-padding-start: 1px;
+    flex-direction: row-reverse;
+    font-family: "Roboto";
+    font-weight: 300;
+    color: #469b74;
+    font-size: 18px;
+}
 
 
     /*ACCORDION*/
@@ -1780,11 +1806,12 @@ h6 {
     }
     /*..........*/
 
-    .completed {
-        font-size: 20px;
-        font-family: "Roboto light";
-        color: #7d7d7d;
-    }
+.completed {
+    font-size: 20px;
+    font-family: "Roboto";
+    font-weight: 300;
+    color: #7d7d7d;
+}
 
     .editFormTodo {
         margin-bottom: 2rem;
@@ -1889,13 +1916,14 @@ h6 {
                 opacity: 0;
             }
 
-    .titleTodo {
-        width: 100%;
-        height: 100%;
-        font-family: "Roboto light";
-        padding-bottom: 5px;
-        display: inline-block;
-    }
+.titleTodo {
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto";
+    font-weight: 300;
+    padding-bottom: 5px;
+    display: inline-block;
+}
 
         .titleTodo span {
             color: #4d4d4d;
