@@ -880,7 +880,7 @@ h6 {
         }
     }
 
-    @media (min-width: 600px) and (max-height: 600px) {
+    @media (min-width: 600px) and (max-height: 500px) {
         .content-todo {
             max-height: 40% !important;
         }
@@ -2057,4 +2057,17 @@ input[type="checkbox"] {
 .text-line{
     text-decoration:line-through;
     color: #4d4d4d;
+}
+
+@media only screen and (max-width: 500px) and (max-height: 600px) {
+    .completed-img img {
+        width: 49% !important;
+    }
+
+}
+
+@media only screen and (min-width: 600px) and (max-height: 500px) {
+    .completed-img img {
+        width: 15% !important;
+    }
 }
